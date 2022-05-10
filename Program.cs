@@ -26,14 +26,17 @@ class Program
 
             foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                WriteTOCEntry(htmlFile, entry);
+                if (!entry.FullName.Trim().EndsWith("/"))
+                {
+                    WriteTOCEntry(htmlFile, entry);
+                }
             }
 
             foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                WriteHtmlEntryHeader(htmlFile, entry);
-                if (!entry.FullName.EndsWith("/"))
+                if (!entry.FullName.Trim().EndsWith("/"))
                 {
+                    WriteHtmlEntryHeader(htmlFile, entry);
                     bool isBinary = false;
                     using(var entryStream = entry.Open())
                     using(var sr = new StreamReader(entryStream))
@@ -70,8 +73,8 @@ class Program
                             }
                         }
                     }
+                    WriteHtmlEntryFooter(htmlFile);
                 }
-                WriteHtmlEntryFooter(htmlFile);
             }  
         }
         Process.Start(new ProcessStartInfo(filePath){
@@ -86,8 +89,8 @@ class Program
         int textChars = 0;
         for(int index = 0; index < totalCount; index++)
         {
-            
-            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()<>?/.,".IndexOf(content[index].ToString().ToUpper()) >= 0)
+            // Text-ish and, specifcally, common xml characters (like \, ", ;, etc).
+            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()<>?/\\;\".,".IndexOf(content[index].ToString().ToUpper()) >= 0)
             {
                 textChars++;
             }
