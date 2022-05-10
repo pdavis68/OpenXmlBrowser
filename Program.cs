@@ -5,7 +5,6 @@ using System.Xml.Linq;
 
 namespace OpenXmlBrowser;
 
-// html & css stuff stolen from these pages: https://renenyffenegger.ch/notes//Microsoft/Office/Open-XML/SpreadsheetML/
 
 class Program
 {
@@ -80,6 +79,7 @@ class Program
         });
     }
 
+    // If 70% of the text is text-ish, let's call it text. ()
     private static bool IsBinaryFile(string content)
     {
         int totalCount = Math.Min(2000, content.Length);
@@ -99,6 +99,7 @@ class Program
         return false;
     }
 
+    // html & css stuff stolen from these pages: https://renenyffenegger.ch/notes//Microsoft/Office/Open-XML/SpreadsheetML/
     private static void WriteHtmlFileHeader(string filename, StreamWriter htmlFile, string filePath)
     {
         string html = "<!DOCTYPE html>";
