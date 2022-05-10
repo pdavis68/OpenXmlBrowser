@@ -79,7 +79,7 @@ class Program
         });
     }
 
-    // If 70% of the text is text-ish, let's call it text. ()
+    // If 85% of the text is text-ish, let's call it text. ()
     private static bool IsBinaryFile(string content)
     {
         int totalCount = Math.Min(2000, content.Length);
@@ -92,7 +92,7 @@ class Program
                 textChars++;
             }
         }
-        if (textChars < (totalCount * 0.7))
+        if (textChars < (totalCount * 0.85))
         {
             return true;
         }
