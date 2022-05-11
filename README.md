@@ -14,8 +14,7 @@ I created this as a tool to help me work I'm doing with Excel spreadsheets. In t
 
 # Generated HTML and CSS
 
-The HTML and CSS came from some pages in the site, https://renenyffenegger.ch/ that I found while Googling. He turned out to be a prolific github contributor. https://github.com/ReneNyffenegger
-I've e-mailed him asking for his permission (assuming since the page is publicly available and that he's a heavy github contributor, that it won't be a problem. If it is, I'll replace the HTML and CSS.)
+The HTML and CSS came from some pages in the site, https://renenyffenegger.ch/ that I found while Googling. He turned out to be a prolific github contributor. https://github.com/ReneNyffenegger. René has kindly given me permission to use this in my code.
 
 # Example
 
